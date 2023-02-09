@@ -102,3 +102,61 @@ clear
   subplot(312),plot(t,y,'.-'),datetick,grid,ylabel('north (m)')
   subplot(313),plot(t,z,'.-'),datetick,grid,ylabel('elevation (m)')
   datestr(736915)
+
+
+  t_cleaned=t;
+  x_cleaned=x;
+  y_cleaned=y;
+  z_cleaned=z;
+
+%
+% now that we've got a "clean" time series, smooth and fill in the 
+% small gaps with a moving median (tell it to ignore the existing NaNs)
+% note the number of NaNs has decreased
+%
+  twindow=30; % how many data points should your window cover?  since our dt=1, this is the same as # of days
+
+  [numel(find(isnan(x))),numel(find(isnan(y))),numel(find(isnan(z)))];
+
+  x_smoothed=movmedian(x,twindow,'omitnan');
+  y_smoothed=movmedian(y,twindow,'omitnan');
+  z_smoothed=movmedian(z,twindow,'omitnan');
+
+  figure(6),clf,
+  subplot(311),plot(t,x_smoothed,'.-'),datetick,grid,ylabel('east (m)'),title('smoothed')
+  subplot(312),plot(t,y_smoothed,'.-'),datetick,grid,ylabel('north (m)')
+  subplot(313),plot(t,z_smoothed,'.-'),datetick,grid,ylabel('elevation (m)')
+  
+  [numel(find(isnan(x_smoothed))),numel(find(isnan(y_smoothed))),numel(find(isnan(z_smoothed)))];
+
+%
+% Still has some gaps! lots of options for how to deal with those, but that's enough for now
+%
+t_cleaned=t;
+  x_cleaned=x;
+  y_cleaned=y;
+  z_cleaned=z;
+
+%
+% now that we've got a "clean" time series, smooth and fill in the 
+% small gaps with a moving median (tell it to ignore the existing NaNs)
+% note the number of NaNs has decreased
+%
+  twindow=30; % how many data points should your window cover?  since our dt=1, this is the same as # of days
+
+  [numel(find(isnan(x))),numel(find(isnan(y))),numel(find(isnan(z)))];
+
+  x_smoothed=movmedian(x,twindow,'omitnan');
+  y_smoothed=movmedian(y,twindow,'omitnan');
+  z_smoothed=movmedian(z,twindow,'omitnan');
+
+  figure(6),clf,
+  subplot(311),plot(t,x_smoothed,'.-'),datetick,grid,ylabel('east (m)'),title('smoothed')
+  subplot(312),plot(t,y_smoothed,'.-'),datetick,grid,ylabel('north (m)')
+  subplot(313),plot(t,z_smoothed,'.-'),datetick,grid,ylabel('elevation (m)')
+  
+  [numel(find(isnan(x_smoothed))),numel(find(isnan(y_smoothed))),numel(find(isnan(z_smoothed)))];
+
+%
+% Still has some gaps! lots of options for how to deal with those, but that's enough for now
+% 
