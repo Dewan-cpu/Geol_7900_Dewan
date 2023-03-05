@@ -1,0 +1,11 @@
+About 9 offset segments is found from west to east
+Segment (m) |Path (m) |Sum (m)
+1 32.04       |32.04    |
+2 142.01      |142.01   |
+3 162.52      |162.52   |
+4 12.75       |25.49    |
+5 11.23       |11.23    |
+6 79.18       |79.18    |
+7 202.03      |202.03   |
+8 23.24       |23.24    |
+9 21.58       |21.58    |699.33 (total offset length)
